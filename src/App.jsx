@@ -25,7 +25,7 @@ function ProductCard({ product }) {
       <figure>
         <img src={product.image} alt={product.name} />
         <button>
-          <img src="/src/assets/images/cart.svg" alt="cart" />
+          <img src="/images/cart.svg" alt="cart" />
           Add to Cart
         </button>
       </figure>
