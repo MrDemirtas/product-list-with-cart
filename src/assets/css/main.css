@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap");
+
+body {
+  font-family: "Red Hat Text", system-ui;
+  background-color: #FCF8F6;
+}
+
+h1,
+h2,
+button {
+  color: #260f08;
+}
+
+p {
+  color: #c73b0f;
+}
+
+span {
+  color: #87635a;
+}
+
+.container {
+  margin-inline: auto;
+  padding: 24px;
+  display: grid;
+  gap: 32px;
+  max-width: 375px;
+  .product-list {
+    display: grid;
+    gap: 32px;
+
+    .product-list-items {
+      display: grid;
+      gap: 24px;
+
+      .card {
+        display: grid;
+        gap: 38px;
+
+        figure {
+          position: relative;
+          height: calc(100% + 22px);
+          button {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: max-content;
+            margin-inline: auto;
+            padding: 12px 28px;
+            border: 1px solid #ad8a85;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            line-height: 18.52px;
+            background-color: #fff;
+            cursor: pointer;
+          }
+        }
+
+        .card-content {
+          display: grid;
+          gap: 4px;
+
+          span {
+            line-height: 18.52px;
+          }
+
+          h2 {
+            font-weight: 600;
+            line-height: 21.17px;
+            font-size: 18px;
+          }
+
+          p {
+            font-weight: 600;
+            line-height: 21.17px;            
+          }
+        }
+      }
+    }
+  }
+
+  .cart {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px;
+    height: 300px;
+    border-radius: 16px;
+    background-color: #fff;
+    h1 {
+      font-weight: 700;
+      line-height: 31.75px;
+      color: #C73B0F;
+    }
+    .cart-items {
+      height: 100%;
+      background: url("/src/assets/images/cart-bg.svg") no-repeat center center;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding: 40px;
+    .product-list {
+      .product-list-items {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1440px;
+    padding: 88px 112px;
+    grid-template-columns: 1fr 384px;
+  }
+}
