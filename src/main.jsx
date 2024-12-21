@@ -5,7 +5,7 @@ import "./assets/css/reset.css";
 import "./assets/css/main.css";
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <App />
-  </StrictMode>
+  // <StrictMode>
+  <App />
+  // </StrictMode>
 );
