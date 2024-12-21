@@ -1,5 +1,5 @@
 import { product } from "./assets/data/data.jsx";
-
+import { useState } from "react";
 function App() {
   return (
     <div className="container">
@@ -20,14 +20,31 @@ function App() {
 }
 
 function ProductCard({ product }) {
+  const [count, setCount] = useState(0);
+
+  console.log(count);
   return (
     <div className="card">
       <figure>
         <img src={product.image} alt={product.name} />
-        <button>
-          <img src="/images/cart.svg" alt="cart" />
-          Add to Cart
-        </button>
+        {count > 0 ? (
+          <div className="cart-count">
+            <button onClick={() => setCount(count - 1)}>
+              <img src="/images/minus.svg" alt="minus" />
+            </button>
+            <span>{count} </span>
+            <button onClick={() => setCount(count + 1)}>
+              <img src="/images/plus.svg" alt="plus" />
+            </button>
+          </div>
+        ) : (
+          <div className="cart-button">
+            <button onClick={() => setCount(count + 1)}>
+              <img src="/images/cart.svg" alt="cart" />
+              Add to Cart
+            </button>
+          </div>
+        )}
       </figure>
       <div className="card-content">
         <span>{product.category}</span>

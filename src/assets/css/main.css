@@ -2,7 +2,7 @@
 
 body {
   font-family: "Red Hat Text", system-ui;
-  background-color: #FCF8F6;
+  background-color: #fcf8f6;
 }
 
 h1,
@@ -40,23 +40,49 @@ span {
         figure {
           position: relative;
           height: calc(100% + 22px);
-          button {
+          span {
+            color: #fff;
+          }
+          .cart-count {
+            display: flex;
+            gap: 43px;
+            padding: 12px;
+            align-items: center;
+            justify-content: space-between;
+            width: max-content;
+            margin-inline: auto;
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            width: max-content;
-            margin-inline: auto;
-            padding: 12px 28px;
-            border: 1px solid #ad8a85;
+            background-color: #C73B0F;
             border-radius: 9999px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 600;
-            line-height: 18.52px;
-            background-color: #fff;
-            cursor: pointer;
+            button {
+              border: none;
+              background-color: transparent;
+              cursor: pointer;
+            }
+          }
+
+          .cart-button {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            button {
+              width: max-content;
+              margin-inline: auto;
+              padding: 12px 28px;
+              border: 1px solid #ad8a85;
+              border-radius: 9999px;
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              font-weight: 600;
+              line-height: 18.52px;
+              background-color: #fff;
+              cursor: pointer;
+            }
           }
         }
 
@@ -76,7 +102,7 @@ span {
 
           p {
             font-weight: 600;
-            line-height: 21.17px;            
+            line-height: 21.17px;
           }
         }
       }
@@ -94,7 +120,7 @@ span {
     h1 {
       font-weight: 700;
       line-height: 31.75px;
-      color: #C73B0F;
+      color: #c73b0f;
     }
     .cart-items {
       height: 100%;
