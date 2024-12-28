@@ -83,6 +83,12 @@ span {
               line-height: 18.52px;
               background-color: #fff;
               cursor: pointer;
+
+              &:not(:disabled):hover {
+                background-color: #fff;
+                border-color: #c73b0f;
+                color: #c73b0f;
+              }
             }
           }
         }
@@ -104,6 +110,33 @@ span {
           p {
             font-weight: 600;
             line-height: 21.17px;
+          }
+        }
+      }
+
+      .card.no-stock {
+        position: relative;
+        &::before {
+          content: "Out of stock";
+          position: absolute;
+          color: #fff;
+          background-color: #ff5151;
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 18.52px;
+          z-index: 1;
+          top: 16px;
+          left: 16px;
+          padding: 4px 8px;
+          border-radius: 8px;
+        }
+
+        .cart-button {
+          button {
+            cursor: not-allowed;
+            background-color: #dedede;
+            border-color: #ff5151;
+            color: #ff5151;
           }
         }
       }

@@ -3,18 +3,11 @@ import { useState } from "react";
 
 function App() {
   const [cart, setCart] = useState([]);
-  
+
   function handleAddToCart(params) {
     if (cart.find((item) => item.id === params.id)) {
-      setCart(
-        cart.map((item) => {
-          if (item.id === params.id) {
-            return { ...item, count: item.count + 1 };
-          } else {
-            return item;
-          }
-        })
-      );
+      cart.find((item) => item.id === params.id).count++;
+      setCart([...cart]);
     } else {
       setCart([...cart, { count: 1, ...params }]);
     }
@@ -22,15 +15,8 @@ function App() {
 
   function handleRemoveCart(params) {
     if (cart.find((item) => item.id === params.id).count > 1) {
-      setCart(
-        cart.map((item) => {
-          if (item.id === params.id) {
-            return { ...item, count: item.count - 1 };
-          } else {
-            return item;
-          }
-        })
-      );
+      cart.find((item) => item.id === params.id).count--;
+      setCart([...cart]);
     } else {
       setCart(cart.filter((item) => item.id !== params.id));
     }
@@ -48,7 +34,12 @@ function App() {
         <h1>Desserts</h1>
         <div className="product-list-items">
           {product.map((item) => (
-            <ProductCard product={item} key={item.id} handleAddToCart={handleAddToCart} handleRemoveCart={handleRemoveCart} cart={cart} />
+            <ProductCard
+            product={item}
+            key={item.id}
+            handleAddToCart={handleAddToCart}
+            handleRemoveCart={handleRemoveCart}
+            cart={cart} />
           ))}
         </div>
       </div>
@@ -90,33 +81,25 @@ function App() {
 }
 
 function ProductCard({ product, handleAddToCart, handleRemoveCart, cart }) {
-  function handleAdd() {
-    handleAddToCart(product);
-  }
-
-  function handleRemove() {
-    handleRemoveCart(product);
-  }
-
   const isInCart = cart.find((item) => item.id === product.id);
-
+  const isOutOfStock = product.stock === 0;
   return (
-    <div className="card">
+    <div className={isOutOfStock ? "card no-stock" : "card"}>
       <figure>
         <img src={product.image} alt={product.name} />
         {isInCart ? (
           <div className="cart-count">
-            <button onClick={handleRemove}>
+            <button disabled={isOutOfStock} onClick={() => handleRemoveCart(product)}>
               <img src="/images/minus.svg" alt="minus" />
             </button>
             <span>{isInCart.count} </span>
-            <button onClick={handleAdd}>
+            <button disabled={isOutOfStock} onClick={() => handleAddToCart(product)}>
               <img src="/images/plus.svg" alt="plus" />
             </button>
           </div>
         ) : (
           <div className="cart-button">
-            <button onClick={handleAdd}>
+            <button disabled={isOutOfStock} onClick={() => handleAddToCart(product)}>
               <img src="/images/cart.svg" alt="cart" />
               Add to Cart
             </button>
