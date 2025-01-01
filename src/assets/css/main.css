@@ -231,7 +231,7 @@ span {
         justify-content: center;
         align-items: center;
         gap: 8px;
-        background-color: #FCF8F6;
+        background-color: #fcf8f6;
         padding-block: 16px;
         border-radius: 8px;
         p {
@@ -241,6 +241,146 @@ span {
         }
       }
       .confirm-order {
+        background-color: #c73b0f;
+        border: none;
+        border-radius: 9999px;
+        padding: 12px 28px;
+        color: #fff;
+        cursor: pointer;
+        &:hover {
+          background-color: #952c0b;
+        }
+      }
+    }
+  }
+}
+
+.order-confirmed-popup {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background-color: hsla(0, 0%, 0%, 0.5);
+  .order-confirmed-popup-container {
+    display: grid;
+    grid-template-rows: repeat(4, max-content);
+    gap: 32px;
+    width: 100%;
+    background-color: #fff;
+    padding: 24px;
+    border-radius: 16px;
+    .order-confirmed-popup-header {
+      display: grid;
+      gap: 8px;
+      h1 {
+        font-size: 42px;
+        line-height: 48px;
+      }
+      p {
+        line-height: 21.17px;
+        color: #87635a;
+      }
+    }
+
+    .order-confirmed-popup-body {
+      display: grid;
+      gap: 24px;
+      background-color: #fcf8f6;
+      padding-inline: 24px;
+      padding-bottom: 24px;
+      border-radius: 8px;
+      .order-confirmed-popup-items {
+        overflow-y: auto;
+        scrollbar-width: none;
+        max-height: 420px;
+        display: grid;
+        gap: 12px;
+        .order-confirmed-popup-item {
+          padding-block: 16px;
+          border-bottom: 1px solid #f5eeec;
+          display: grid;
+          grid-template-columns: 1fr max-content;
+          align-items: center;
+          gap: 12px;
+          justify-content: space-between;
+          .order-confirmed-popup-item-container {
+            display: flex;
+            gap: 16px;
+            img {
+              width: 48px;
+              height: 48px;
+              object-fit: cover;
+              border-radius: 4px;
+            }
+
+            .order-confirmed-popup-item-info {
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              gap: 8px;
+              width: 100%;
+              h2 {
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 18.52px;
+                color: #260f08;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+                max-width: 90%;
+              }
+              .order-confirmed-popup-item-price {
+                display: flex;
+                gap: 12px;
+                p:first-child {
+                  font-size: 14px;
+                  line-height: 18.52px;
+                  color: #c73b0f;
+                  font-weight: 600;
+                }
+                p:last-child {
+                  font-size: 14px;
+                  line-height: 18.52px;
+                  color: #87635a;
+                }
+              }
+            }
+          }
+
+          .order-confirmed-popup-item-count {
+            p {
+              font-size: 18px;
+              color: #260f08;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+
+      .order-total {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        span {
+          font-size: 14px;
+          line-height: 18.52px;
+          color: #260f08;
+        }
+        .total-price {
+          font-size: 28px;
+          font-weight: 700;
+          line-height: 31.75px;
+          color: #260f08;
+        }
+      }
+    }
+
+    .order-confirmed-popup-footer {
+      display: grid;
+      align-self: flex-end;
+      button {
         background-color: #c73b0f;
         border: none;
         border-radius: 9999px;
@@ -262,6 +402,14 @@ span {
       }
     }
   }
+
+  .order-confirmed-popup {
+    align-items: center;
+    .order-confirmed-popup-container {
+      padding: 40px;
+      width: 90%;
+    }
+  }
 }
 
 @media (min-width: 1440px) {
@@ -269,5 +417,11 @@ span {
     max-width: 1440px;
     padding: 88px 112px;
     grid-template-columns: 1fr 384px;
+  }
+
+  .order-confirmed-popup {
+    .order-confirmed-popup-container {
+      width: 40%;
+    }
   }
 }
